@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Portfolio Builder</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+  <!-- HTML2PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Ultimate Portfolio Builder</h1>
+    <p id="welcomeMsg"></p>
+    <button id="logoutBtn" class="btn" style="display:none;">Logout</button>
+  </header>
+
+  <!-- Auth Section -->
+  <section id="authSection">
+    <form>
+      <label>Email</label>
+      <input type="email" id="authEmail" required>
+      <label>Password</label>
+      <input type="password" id="authPassword" required>
+      <p id="authMessage" style="color:red;"></p>
+      <button type="button" id="loginBtn" class="btn">Login</button>
+      <button type="button" id="registerBtn" class="btn">Register</button>
+    </form>
+  </section>
+
+  <!-- Builder Form -->
+  <form id="portfolioForm" style="display:none;">
+    <h2>Portfolio Details</h2>
+    <label>Name</label>
+    <input type="text" id="name">
+    <label>About</label>
+    <textarea id="about"></textarea>
+    <label>Skills (e.g., HTML-80, CSS-70)</label>
+    <input type="text" id="skills">
+    <label>Projects (Title-Desc-Image; separate with “;”)</label>
+    <textarea id="projects"></textarea>
+    <label>Education</label>
+    <textarea id="education"></textarea>
+    <label>Experience</label>
+    <textarea id="experience"></textarea>
+    <label>Certifications</label>
+    <textarea id="certifications"></textarea>
+    <label>Testimonials</label>
+    <textarea id="testimonials"></textarea>
+    <label>Hobbies</label>
+    <textarea id="hobbies"></textarea>
+    <label>Languages</label>
+    <textarea id="languages"></textarea>
+    <label>Achievements</label>
+    <textarea id="achievements"></textarea>
+    <label>References</label>
+    <textarea id="references"></textarea>
+    <label>Email</label>
+    <input type="email" id="email">
+    <label>Social Links (comma separated)</label>
+    <input type="text" id="socialLinks">
+    <label>Choose Template</label>
+    <select id="template">
+      <option value="template1">Template 1</option>
+      <option value="template2">Template 2</option>
+      <option value="template3">Template 3</option>
+    </select>
+    <label>Theme Color</label>
+    <input type="color" id="themeColor" value="#ff9800">
+    <label>Font</label>
+    <select id="fontSelect">
+      <option value="Arial">Arial</option>
+      <option value="'Courier New', monospace">Courier</option>
+      <option value="Georgia, serif">Georgia</option>
+    </select>
+    <label>Dark Mode</label>
+    <input type="checkbox" id="darkModeToggle">
+    <label>Profile Picture</label>
+    <input type="file" id="profilePic" accept="image/*">
+    <label>Intro Video (YouTube embed URL)</label>
+    <input type="url" id="mediaUrl">
+
+    <button type="submit" class="btn">Generate Portfolio</button>
+  </form>
+
+  <!-- Actions -->
+  <div id="portfolioActions" style="display:none;">
+    <button id="downloadPDF" class="btn">Download PDF</button>
+    <button id="exportHTML" class="btn">Export HTML</button>
+  </div>
+
+  <!-- Preview -->
+  <div id="portfolioPreview"></div>
+
+  <footer>© 2025 Ultimate Portfolio Builder</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
